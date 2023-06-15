@@ -4,7 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { BsPersonCircle, BsFillCalendarCheckFill, BsNewspaper } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import { FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
-import CommentSection from "./Comment";
+import CommentSection from "./Comments";
 import { AuthContext } from "../context/AuthContext";
 
 const url = "https://644e26454e86e9a4d8f1fcf6.mockapi.io/api/v1/berita/";
