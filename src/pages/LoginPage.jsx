@@ -1,99 +1,61 @@
-// @ts-nocheck
-import axios from "axios";
-import { createContext, useEffect } from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  MDBContainer,
+  MDBInput,
+  MDBCheckbox,
+  MDBBtn,
+  MDBIcon,
+} from "mdb-react-ui-kit";
+import { AuthContext } from "../context/AuthContext";
 
-export const AuthContext = createContext();
+function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState();
-  const [checkingUser, setCheckingUser] = useState(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const login = async (email, password) => {
-    try {
-      const response = await axios.get(
-        "https://6489e4ed5fa58521cab06f1a.mockapi.io/users"
-      );
-      const foundedUser = response.data.find(
-        (user) => user.email === email && user.password === password
-      );
-
-      if (!foundedUser) {
-        return false;
-      }
-
-      localStorage.setItem("user", JSON.stringify(foundedUser));
-      setCurrentUser(foundedUser);
-      return true;
-    } catch (error) {
-      console.error(error);
-      return false;
+    const success = await login(email, password);
+    if (success) {
+      alert("Login berhasil!");
+      navigate("/");
+      return;
     }
   };
-
-  const logout = async () => {
-    try {
-      localStorage.removeItem("user");
-      setCurrentUser(null);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const register = async (username, email, password) => {
-    try {
-      const response = await axios.get(
-        "https://6489e4ed5fa58521cab06f1a.mockapi.io/users"
-      );
-      const foundedUser = response.data.find((user) => user.email === email);
-
-      if (foundedUser) {
-        alert("Email sudah dipakai");
-        return false;
-      }
-
-      // Harus sama dengan yang ada di mockapi bentuknya
-      const newUser = {
-        username,
-        email,
-        password,
-        role: "user",
-      };
-
-      const newUserResponse = await axios.post(
-        "https://6489e4ed5fa58521cab06f1a.mockapi.io/users",
-        newUser
-      );
-
-      if (!newUserResponse) {
-        alert("Terjadi kesalahan");
-        return false;
-      }
-
-      return true;
-    } catch (error) {
-      console.error(error);
-      return false;
-    }
-  };
-
-  const isLoggedIn = Boolean(currentUser);
-
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      setCurrentUser(JSON.parse(user));
-    }
-    setCheckingUser(false);
-  }, []);
 
   return (
-    <>
-      <AuthContext.Provider
-        value={{ currentUser, isLoggedIn, register, login, logout }}
-      >
-        {!checkingUser && children}
-      </AuthContext.Provider>
-    </>
+    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+      <MDBInput
+        wrapperClass="mb-4"
+        label="Email address"
+        value={email}
+        id="form1"
+        type="email"
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <MDBInput
+        wrapperClass="mb-4"
+        label="Password"
+        value={password}
+        id="form2"
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <MDBBtn className="mb-4" onClick={handleSubmit}>
+        Sign in
+      </MDBBtn>
+
+      <div className="text-center">
+        <p>
+          Not a member? <Link to="/register">Register</Link>
+        </p>
+      </div>
+    </MDBContainer>
   );
-};
+}
+
+export default LoginPage;
