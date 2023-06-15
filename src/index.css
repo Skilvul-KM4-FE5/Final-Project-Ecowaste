@@ -279,14 +279,14 @@ section {
 }
 
 /* Navbar */
-a.nav-link {
+.nav-link {
   font-family: var(--font-secondary);
   font-size: 16px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.6);
 }
 
-a.nav-link:hover {
+.navbar-nav .nav-link:hover {
   color: var(--color-secondary);
 }
 
