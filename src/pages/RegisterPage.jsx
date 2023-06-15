@@ -5,6 +5,7 @@ import {
   MDBCheckbox,
   MDBBtn,
   MDBIcon,
+  MDBCol,
 } from "mdb-react-ui-kit";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
@@ -29,6 +30,15 @@ function Register() {
 
   return (
     <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+      <MDBCol className="d-flex justify-content-center">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          className="img-fluid"
+          alt="Sample image"
+          style={{ width: "400px", height: "auto", paddingBottom: "1.5rem" }}
+        />
+      </MDBCol>
+
       <MDBInput
         wrapperClass="mb-4"
         label="Username"
