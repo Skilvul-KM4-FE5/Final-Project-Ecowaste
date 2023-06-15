@@ -38,8 +38,7 @@ const ArtikelCard = () => {
                     <p className="card-text">{trimText(artikel.descartikel, 100)}</p>
                     <Link to={`/detail-artikel/${artikel.id}`} className="btn btn-outline-danger">
                     Selengkapnya
-                  </Link>
-                    
+                    </Link>
                 </div>
                 <div className="card-footer">
                     <small className="text-body-secondary">Publish {artikel.publish}</small>
