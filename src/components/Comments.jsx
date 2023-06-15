@@ -7,6 +7,10 @@ const CommentSection = () => {
   const [comment, setComment] = useState("");
   const [commentsList, setCommentsList] = useState([]);
 
+  const handleCommentChange = (event) => {
+    setComment(event.target.value);
+  };
+
   return (
     <div>
       <h4>Comments</h4>
