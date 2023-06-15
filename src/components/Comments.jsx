@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 const CommentSection = () => {
   const param = useParams();
 
+  const { currentUser } = useContext(AuthContext);
   return (
     <div>
       <h4>Comments</h4>
