@@ -4,6 +4,9 @@ const CommentSection = () => {
   const param = useParams();
 
   const { currentUser } = useContext(AuthContext);
+  const [comment, setComment] = useState("");
+  const [commentsList, setCommentsList] = useState([]);
+
   return (
     <div>
       <h4>Comments</h4>
