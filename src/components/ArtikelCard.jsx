@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import "../artikel.css"
 
 const url = 'https://6451c103a2860c9ed4fa3d95.mockapi.io/api/v1/artikel';
 
