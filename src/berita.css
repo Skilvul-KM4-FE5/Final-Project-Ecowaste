@@ -59,9 +59,19 @@
   margin-bottom: 0.7rem;
 }
 
-.btn {
-  margin-top: 10px;
-  float: left;
+.bttn {
+  padding: 0.5rem 1.2rem;
+  background-color: #fff;
+  border: 2px solid #830000;
+  font-size: 0.95rem;
+  line-height: 1;
+  border-radius: 25px;
+  color: #830000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0;
+  outline: none;
 }
 
 .button-container {
