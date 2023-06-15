@@ -6,8 +6,10 @@ import {
   MDBCheckbox,
   MDBBtn,
   MDBIcon,
+  MDBCol,
 } from "mdb-react-ui-kit";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -20,7 +22,13 @@ function LoginPage() {
 
     const success = await login(email, password);
     if (success) {
-      alert("Login berhasil!");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your successful login",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       navigate("/");
       return;
     }
@@ -28,6 +36,15 @@ function LoginPage() {
 
   return (
     <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+      <MDBCol className="d-flex justify-content-center">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          className="img-fluid"
+          alt="Sample image"
+          style={{ width: "400px", height: "auto", paddingBottom: "1.5rem" }}
+        />
+      </MDBCol>
+
       <MDBInput
         wrapperClass="mb-4"
         label="Email address"
