@@ -36,7 +36,7 @@ const ArtikelCard = () => {
                 <div className="card-body">
                     <h5 className="card-title">{trimText(artikel.titleartikel, 50)}</h5>
                     <p className="card-text">{trimText(artikel.descartikel, 100)}</p>
-                    <Link to={`/detail-artikel/${artikel.id}`} className="btn btn-outline-danger">
+                    <Link to={`/detail-artikel/${artikel.id}`} className="bttn">
                     Selengkapnya
                     </Link>
                 </div>
