@@ -10,7 +10,7 @@ export default function PilahSampah() {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>Pilah sampah</li>
+              <li>Pilah Sampah</li>
             </ol>
           </div>
         </nav>
