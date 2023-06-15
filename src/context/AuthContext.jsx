@@ -11,8 +11,12 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.get("https://6489e4ed5fa58521cab06f1a.mockapi.io/users");
-      const foundedUser = response.data.find((user) => user.email === email && user.password === password);
+      const response = await axios.get(
+        "https://6489e4ed5fa58521cab06f1a.mockapi.io/users"
+      );
+      const foundedUser = response.data.find(
+        (user) => user.email === email && user.password === password
+      );
 
       if (!foundedUser) {
         return false;
@@ -38,7 +42,10 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, email, password) => {
     try {
-      const response = await axios.get("https://6489e4ed5fa58521cab06f1a.mockapi.io/users");
+      const response = await axios.get(
+        "https://6489e4ed5fa58521cab06f1a.mockapi.io/users"
+      );
+      
       const foundedUser = response.data.find((user) => user.email === email);
 
       if (foundedUser) {
@@ -53,7 +60,10 @@ export const AuthProvider = ({ children }) => {
         role: "user",
       };
 
-      const newUserResponse = await axios.post("https://6489e4ed5fa58521cab06f1a.mockapi.io/users", newUser);
+      const newUserResponse = await axios.post(
+        "https://6489e4ed5fa58521cab06f1a.mockapi.io/users",
+        newUser
+      );
 
       if (!newUserResponse) {
         alert("Terjadi kesalahan");
@@ -79,7 +89,11 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <>
-      <AuthContext.Provider value={{ currentUser, isLoggedIn, register, login, logout }}>{!checkingUser && children}</AuthContext.Provider>
+      <AuthContext.Provider
+        value={{ currentUser, isLoggedIn, register, login, logout }}
+      >
+        {!checkingUser && children}
+      </AuthContext.Provider>
     </>
   );
 };
