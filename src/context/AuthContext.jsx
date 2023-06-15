@@ -9,6 +9,66 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const [checkingUser, setCheckingUser] = useState(true);
 
+  const login = async (email, password) => {
+    try {
+      const response = await axios.get("https://6489e4ed5fa58521cab06f1a.mockapi.io/users");
+      const foundedUser = response.data.find((user) => user.email === email && user.password === password);
+
+      if (!foundedUser) {
+        return false;
+      }
+
+      localStorage.setItem("user", JSON.stringify(foundedUser));
+      setCurrentUser(foundedUser);
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+
+  const logout = async () => {
+    try {
+      localStorage.removeItem("user");
+      setCurrentUser(null);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const register = async (username, email, password) => {
+    try {
+      const response = await axios.get("https://6489e4ed5fa58521cab06f1a.mockapi.io/users");
+      const foundedUser = response.data.find((user) => user.email === email);
+
+      if (foundedUser) {
+        alert("Email sudah dipakai");
+        return false;
+      }
+
+      const newUser = {
+        username,
+        email,
+        password,
+        role: "user",
+      };
+
+      const newUserResponse = await axios.post("https://6489e4ed5fa58521cab06f1a.mockapi.io/users", newUser);
+
+      if (!newUserResponse) {
+        alert("Terjadi kesalahan");
+        return false;
+      }
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+
+  const isLoggedIn = Boolean(currentUser);
+
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (user) {
