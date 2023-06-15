@@ -18,6 +18,8 @@ import SampahB3 from "./pages/SampahB3";
 import Register from "./pages/RegisterPage";
 import { AuthProvider } from "./context/AuthContext";
 import LoginPage from "./pages/LoginPage";
+import ArtikelPage from "./pages/ArtikelPage";
+import DetailArtikel from "./pages/DetailArtikel";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +31,8 @@ const router = createBrowserRouter(
       <Route path="sampah-B3" element={<SampahB3 />} />
       <Route path="login" element={<LoginPage />} />
       <Route path="register" element={<Register />} />
+      <Route path="artikel" element={<ArtikelPage />} />
+      <Route path="/detail-artikel/:artcId" element={<DetailArtikel />} />
     </Route>
   )
 );
