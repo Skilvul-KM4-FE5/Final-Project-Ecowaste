@@ -15,6 +15,9 @@ import PilahSampah from "./pages/PilahSampah";
 import SampahOrganik from "./pages/SampahOrganik";
 import SampahAnorganik from "./pages/SampahAnorganik";
 import SampahB3 from "./pages/SampahB3";
+import Register from "./pages/RegisterPage";
+import { AuthProvider } from "./context/AuthContext";
+import LoginPage from "./pages/LoginPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,12 +27,16 @@ const router = createBrowserRouter(
       <Route path="sampah-organik" element={<SampahOrganik />} />
       <Route path="sampah-anorganik" element={<SampahAnorganik />} />
       <Route path="sampah-B3" element={<SampahB3 />} />
+      <Route path="login" element={<LoginPage />} />
+      <Route path="register" element={<Register />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
