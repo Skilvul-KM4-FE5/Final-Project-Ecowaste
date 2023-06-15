@@ -23,8 +23,14 @@ export default function DetailArtikel() {
           </div>
         </nav>
       </div>
-      
-    </main>
+      <section id="kategori" className="kategori sections-bg">
+        <div className="container" data-aos="fade-up">
+          <div className="section-header">
+            <h2>DETAIL ARTIKEL</h2>
+          </div>
+        </div>
+      </section>
+      </main>
     </>
     
   );
