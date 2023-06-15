@@ -19,6 +19,9 @@ const ArtikelCard = () => {
         getDataArtikel();
     }, []);
 
+    const trimText = (text, maxLength) => {
+        return text.length > maxLength ? text.substring(0, maxLength - 3) + "..." : text;
+    }
 
     return (
         <>
@@ -30,8 +33,8 @@ const ArtikelCard = () => {
                 <img src={artikel.image} className='card-img-top' alt='banner-organik' />
                 <div className="categoryy">{artikel.category}</div>
                 <div className="card-body">
-                    <h5 className="card-title">{artikel.titleartikel}</h5>
-                    <p className="card-text">{artikel.descartikel}</p>
+                    <h5 className="card-title">{trimText(artikel.titleartikel, 50)}</h5>
+                    <p className="card-text">{trimText(artikel.descartikel, 100)}</p>
                     <Link to={`/detail-artikel/${artikel.id}`} className="btn btn-outline-danger">
                     Selengkapnya
                   </Link>
