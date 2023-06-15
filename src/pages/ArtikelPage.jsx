@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ArtikelCard from "../components/ArtikelCard";
 
 export default function Artikel() {
   return (
@@ -29,6 +30,7 @@ export default function Artikel() {
         </div>
       </section>
       </main>
+      <ArtikelCard />
     </>
     
   );
