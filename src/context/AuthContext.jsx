@@ -45,6 +45,7 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.get(
         "https://6489e4ed5fa58521cab06f1a.mockapi.io/users"
       );
+      
       const foundedUser = response.data.find((user) => user.email === email);
 
       if (foundedUser) {
@@ -52,7 +53,6 @@ export const AuthProvider = ({ children }) => {
         return false;
       }
 
-      // Harus sama dengan yang ada di mockapi bentuknya
       const newUser = {
         username,
         email,
