@@ -48,41 +48,49 @@ export default function Home() {
     .catch((err) => console.log("Gagal memuat data"));
   return (
     <main id="main">
-      <Card className="text-white">
-        <Card.Img
-          style={{
-            height: "400px",
-            objectFit: "cover",
-            objectPosition: "100% 75%",
-          }}
-          src="https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-        />
-
-        <Card.ImgOverlay>
-          <Container >
-          <Col md={6}>
-            <h1 className="display-4">Mari peduli lingkungan sekitarmu</h1>
-          </Col>
-          <Col md={6}>
-            <p style={{ marginBottom: '40px' }}>
-              Yuk mulai langkah nyata peduli lingkungan dengan cara membuang
-              sampah pada tempatnya dan jangan lupa untuk memilah sampah sesuai
-              dengan jenisnya ya.
-            </p>
-          </Col>
-          <Col md={6}>
-
-            <Button className="btn-header" style={{ marginRight: '12px' }}>Get Started</Button>
-            <Button className="glightbox btn-header">
-              <div className="d-flex align-items-center">
-                <FaPlay  style={{ marginRight: '8px' }} />
-                <span className="mr-2">Watch Video</span>
+      <section id="hero" class="hero">
+        <div className="container position-relative">
+          <div className="row gy-5" data-aos="fade-in">
+            <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+              <h2>
+                Mari peduli <span>lingkungan sekitarmu</span>
+              </h2>
+              <p style={{ color: "white" }}>
+                Yuk mulai langkah nyata peduli lingkungan dengan cara membuang
+                sampah pada tempatnya dan jangan lupa untuk memilah sampah
+                sesuai dengan jenisnya ya.
+              </p>
+              <div className="d-flex justify-content-center justify-content-lg-start">
+                <Link
+                  to="/login"
+                  className="btn-header"
+                  style={{ marginRight: "12px" }}
+                >
+                  Get Started
+                </Link>
+                <Link
+                  to="https://youtu.be/WlauqoKUteo"
+                  className="glightbox btn-header"
+                >
+                  <div className="d-flex align-items-center">
+                    <FaPlay style={{ marginRight: "8px" }} />
+                    <span className="mr-2">Watch Video</span>
+                  </div>
+                </Link>
               </div>
-            </Button>
-          </Col>
-          </Container>
-        </Card.ImgOverlay>
-      </Card>
+            </div>
+            <div className="col-lg-6 order-3 order-lg-2">
+              <img
+                src=""
+                className="img"
+                alt=""
+                data-aos="zoom-out"
+                data-aos-delay="100"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Container className="mt-4 section-header">
         <h2 id="tentang-kami">Tentang Kami</h2>
@@ -130,76 +138,147 @@ export default function Home() {
 
       <Container
         className="section-header"
-        style={{ backgroundColor: "#f6f6f6" }}
+        style={{ backgroundColor: "#fff" }}
         fluid
       >
-        <h2 id="pilah-sampah" className="pt-4">
-          Pilah Sampah
-        </h2>
-        <Row>
-          <Col md={4}>
-            <Card border="light" className="p-4">
-              <Card.Img variant="top" src="/organik.svg" />
-              <Card.Title>Organik</Card.Title>
-              <a href="#" className="readmore stretched-link">
-                Read more
-                <FaAngleRight />
-              </a>
-            </Card>
-          </Col>
+        <section id="services" className="services sections-bg">
+          <Container data-aos="fade-up">
+            <div className="section-header">
+              <h2>Pilah Sampah</h2>
+            </div>
 
-          <Col md={4}>
-            <Card border="light" className="p-4">
-              <Card.Img variant="top" src="/anorganik.svg" />
-              <Card.Title>Anorganik</Card.Title>
-              <a href="#" className="readmore stretched-link">
-                Read more
-                <FaAngleRight />
-              </a>
-            </Card>
-          </Col>
+            <Row className="gy-4" data-aos="fade-up" data-aos-delay="100">
+              <Col lg={4} md={6}>
+                <div className="service-item position-relative text-center">
+                  <img src="/organik.svg" alt="Organik" />
+                  <h3 style={{ marginRight: "8px", textAlign: "center" }}>
+                    Organik
+                  </h3>
+                  <Link
+                    to="/sampah-organik"
+                    className="readmore stretched-link"
+                  >
+                    Read more <i className="bi bi-arrow-right"></i>
+                  </Link>
+                </div>
+              </Col>
+              {/* End pilah sampah Item */}
 
-          <Col md={4}>
-            <Card border="light" className="p-4">
-              <Card.Img variant="top" src="/b3.svg" />
-              <Card.Title>B3</Card.Title>
-              <a href="#" className="readmore stretched-link">
-                Read more
-                <FaAngleRight />
-              </a>
-            </Card>
-          </Col>
-        </Row>
+              <Col lg={4} md={6}>
+                <div className="service-item position-relative text-center">
+                  <img src="/anorganik.svg" alt="Anorganik" />
+                  <h3 style={{ marginRight: "8px" }}>Anorganik</h3>
+                  <Link
+                    to="/sampah-anorganik"
+                    className="readmore stretched-link"
+                  >
+                    Read more <i className="bi bi-arrow-right"></i>
+                  </Link>
+                </div>
+              </Col>
+              {/* End pilah sampah item */}
 
-        <h2 className="pt-4">Artikel</h2>
-        <Row>
-          {article.map((item) => (
-            <Col>
-              <Card style={{ minHeight: "300px" }} border="light" key={item.id}>
-                <Card.Img
-                  style={{ maxHeight: "200px", objectFit: "cover" }}
-                  src={item.images}
-                />
-                <Card.Body>{item.title}</Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+              <Col lg={4} md={6}>
+                <div className="service-item position-relative text-center">
+                  <img src="/b3.svg" alt="B3" />
+                  <h3 style={{ marginRight: "8px" }}>B3</h3>
+                  <Link to="/sampah-b3" className="readmore stretched-link">
+                    Read more <i className="bi bi-arrow-right"></i>
+                  </Link>
+                </div>
+              </Col>
+              {/* End pilah sampah Item */}
+            </Row>
+          </Container>
+        </section>
 
-        <h2 className="pt-4">Berita</h2>
-        <Row>
-          {news.map((item) => (
-            <Col>
-              <Card style={{ minHeight: "300px" }} border="light" key={item.id}>
-                <Card.Img
-                  style={{ maxHeight: "200px", objectFit: "cover" }}
-                  src={item.images}
-                />
-                <Card.Body>{item.title}</Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+        <section id="recent-posts" className="recent-posts sections-bg">
+          <Container data-aos="fade-up">
+            <div className="section-header">
+              <h2>Artikel</h2>
+            </div>
+
+            <Row className="gy-4">
+              {article.map((item) => (
+                <Col xl={4} md={6}>
+                  <article>
+                    <div className="post-img">
+                      <img
+                        src={item.images}
+                        alt=""
+                        className="img-fluid"
+                        style={{ height: "200px", width: "300px" }}
+                      />
+                    </div>
+
+                    <h5
+                      className="title"
+                      style={{
+                        fontSize: "14px",
+                        textDecoration: "none",
+                        marginBottom: "40px",
+                      }}
+                    >
+                      <a href="/artikel" style={{ borderBottom: "none" }}>
+                        {item.title}
+                      </a>
+                    </h5>
+                    <Link to="/artikel" className="bttn">
+                      Selengkapnya
+                    </Link>
+
+                    {/* <div className="d-flex align-items-center"></div> */}
+                  </article>
+                </Col>
+              ))}
+            </Row>
+            {/* End recent posts list */}
+          </Container>
+        </section>
+
+        <section id="recent-posts" className="recent-posts sections-bg">
+          <Container data-aos="fade-up">
+            <div className="section-header">
+              <h2>Berita</h2>
+            </div>
+
+            <Row className="gy-4">
+              {news.map((item) => (
+                <Col xl={4} md={6}>
+                  <article>
+                    <div className="post-img">
+                      <img
+                        src={item.images}
+                        alt=""
+                        className="img-fluid"
+                        style={{ height: "200px", width: "300px" }}
+                      />
+                    </div>
+
+                    <h5
+                      className="title"
+                      style={{
+                        fontSize: "14px",
+                        textDecoration: "none",
+                        marginBottom: "40px",
+                      }}
+                    >
+                      <a href="/artikel" style={{ borderBottom: "none" }}>
+                        {item.title}
+                      </a>
+                    </h5>
+                    <Link to="/Berita" className="bttn">
+                      Selengkapnya
+                    </Link>
+
+                    {/* <div className="d-flex align-items-center"></div> */}
+                  </article>
+                </Col>
+              ))}
+            </Row>
+            {/* End recent posts list */}
+          </Container>
+        </section>
       </Container>
 
       <section id="Contact" className="Contact">
