@@ -12,12 +12,14 @@ import {
 import Layout from "./Layout";
 import Home from "./pages/Home";
 import ArtikelPage from "./pages/ArtikelPage";
+import DetailArtikel from "./pages/DetailArtikel";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="artikel" element={<ArtikelPage />} />
+      <Route path="/detail-artikel/:artcId" element={<DetailArtikel />} />
     </Route>
   )
 );
