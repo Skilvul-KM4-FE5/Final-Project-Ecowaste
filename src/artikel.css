@@ -31,6 +31,26 @@
   .card-footer {
     color: rgb(167, 166, 166);
   }
+
+  .bttn {
+    padding: 0.5rem 1.2rem;
+    background-color: #fff;
+    border: 2px solid #830000;
+    font-size: 0.95rem;
+    line-height: 1;
+    border-radius: 25px;
+    color: #830000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0;
+    outline: none;
+  }
+
+  .bttn:hover {
+    background-color: #830000;
+    color: #fff;
+  }
   
   /* paragraph */
   .paragraph {
