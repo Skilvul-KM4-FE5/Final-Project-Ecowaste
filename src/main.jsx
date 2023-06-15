@@ -2,7 +2,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./pages/Home";
 import BeritaPage from "./pages/Beritapage";
