@@ -1,7 +1,22 @@
 import Container from "react-bootstrap/Container";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Navigation() {
+  const { isLoggedIn, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: "#830000" }}>
       <Container>
@@ -28,6 +43,11 @@ function Navigation() {
               <NavDropdown.Item href="/Berita">Berita</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#kontak">Kontak Kami</Nav.Link>
+            {isLoggedIn ? (
+              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+            ) : (
+              <Nav.Link onClick={handleLogin}>Login</Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
