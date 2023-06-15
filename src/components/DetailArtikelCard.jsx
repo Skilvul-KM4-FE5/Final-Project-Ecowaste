@@ -30,7 +30,7 @@ const DetailArtikelCard = () => {
               <Row className="g-10">
                 
                   <Col lg={12} key={artikel.id}>
-                    <article className="blog-details">
+                    <article className="blog-details" style={{ boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)' }}>
                       <div className="row gy-5" data-aos="fade-in">
                         <img src={artikel.image} alt="" className="img" />
                       </div>
