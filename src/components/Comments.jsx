@@ -11,6 +11,29 @@ const CommentSection = () => {
     setComment(event.target.value);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (comment.trim() === "") {
+      return;
+    }
+    const newComment = {
+      createdAt: new Date(),
+      username: currentUser.username,
+      content: comment,
+    };
+    setCommentsList([...commentsList, newComment]);
+    setComment("");
+    const response = await fetch(`${url}/${param.newsId}/comment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newComment),
+    });
+    await response.json();
+    loadComments();
+  };
+
   return (
     <div>
       <h4>Comments</h4>
