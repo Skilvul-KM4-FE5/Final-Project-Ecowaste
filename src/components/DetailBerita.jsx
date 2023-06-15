@@ -31,7 +31,7 @@ const DetailBerita = () => {
         <Container data-aos="fade-up">
           <Row className="">
             <Col lg={12} key={berita.id}>
-              <article className="blog-details">
+              <article className="blog-details" style={{ boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)" }}>
                 <div className="row gy-5" data-aos="fade-in">
                   <img src={berita.images} alt="" className="image" />
                 </div>
