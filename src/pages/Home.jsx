@@ -48,21 +48,6 @@ export default function Home() {
     .catch((err) => console.log("Gagal memuat data"));
   return (
     <main id="main">
-      {/* <div className="breadcrumbs">
-        <nav>
-          <div className="container">
-            <ol>
-              <li>
-                <Link className="nav-link" to="/">
-                  Home
-                </Link>
-              </li>
-              <li>Pilah sampah</li>
-            </ol>
-          </div>
-        </nav>
-      </div> */}
-
       <Card className="text-white">
         <Card.Img
           style={{
@@ -72,8 +57,8 @@ export default function Home() {
           }}
           src="https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
         />
+
         <Card.ImgOverlay>
-        
           <Container >
           <Col md={6}>
             <h1 className="display-4">Mari peduli lingkungan sekitarmu</h1>
@@ -86,17 +71,17 @@ export default function Home() {
             </p>
           </Col>
           <Col md={6}>
-            <Button className="btn-get-started" style={{ marginRight: '12px' }}>Get Started</Button>
-            <Button className="glightbox btn-watch-video">
+
+            <Button className="btn-header" style={{ marginRight: '12px' }}>Get Started</Button>
+            <Button className="glightbox btn-header">
               <div className="d-flex align-items-center">
-                <FaPlay />
+                <FaPlay  style={{ marginRight: '8px' }} />
                 <span className="mr-2">Watch Video</span>
               </div>
             </Button>
           </Col>
           </Container>
         </Card.ImgOverlay>
-        
       </Card>
 
       <Container className="mt-4 section-header">
@@ -264,7 +249,7 @@ export default function Home() {
                 <Modal.Header closeButton>
                   <Modal.Title>Pemberitahuan</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Terima kasih telah menghubungi kami </Modal.Body>
+                <Modal.Body>Terima kasih telah menghubungi kami! </Modal.Body>
               </Modal>
               <form id="my-form">
                 <h3 className="title">Kontak Kami</h3>
@@ -308,7 +293,7 @@ export default function Home() {
                     required
                   ></textarea>
                 </div>
-                <Button onClick={handleModal} className="btn">
+                <Button onClick={handleModal} className="btn-contact">
                   Kirim
                 </Button>
               </form>

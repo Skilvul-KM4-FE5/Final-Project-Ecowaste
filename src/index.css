@@ -1537,6 +1537,26 @@ textarea.input {
   outline: none;
 }
 
+.btn-contact {
+  padding: 0.6rem 1.3rem;
+  background-color: #fff;
+  border: 2px solid #fafafa;
+  font-size: 0.95rem;
+  line-height: 1;
+  border-radius: 25px;
+  color: #830000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0;
+  outline: none;
+}
+
+.btn-contact:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
 .contact-info {
   padding: 2.3rem 2.2rem;
   position: relative;
@@ -2583,4 +2603,10 @@ textarea.input {
 /* paragraf berita*/
 .paragraph {
   white-space: pre-line;
+}
+
+/* button header */
+.btn-header:hover {
+  background-color: transparent;
+  color: #fff;
 }
