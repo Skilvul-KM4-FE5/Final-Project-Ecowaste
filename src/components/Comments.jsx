@@ -2,7 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { Button, Form, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { formatTime } from "../utils/formatTime";
 
+const url = "https://644e26454e86e9a4d8f1fcf6.mockapi.io/api/v1/berita";
 const CommentSection = () => {
   const param = useParams();
 
@@ -37,6 +39,12 @@ const CommentSection = () => {
     loadComments();
   };
 
+  const loadComments = async () => {
+    const response = await fetch(`${url}/${param.newsId}/comment`);
+    const data = await response.json();
+    setCommentsList(data);
+  };
+
   useEffect(() => {
     loadComments();
   }, []);
@@ -52,6 +60,22 @@ const CommentSection = () => {
           Submit
         </Button>
       </Form>
+      <ListGroup className="mt-3">
+        {commentsList.map((comment, index) => (
+          <ListGroup.Item
+            key={index}
+            style={{
+              marginTop: "1.5rem",
+              opacity: comment.id ? "100%" : "50%",
+            }}
+          >
+            <strong>{comment.username}: </strong>
+            {comment.content}
+            <br />
+            {formatTime(comment.createdAt)}
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
     </div>
   );
 };
