@@ -61,6 +61,7 @@ section {
 .section-header {
   text-align: center;
   padding-bottom: 2.5rem;
+  background-color: #fff;
 }
 
 .section-header h2 {
@@ -2606,7 +2607,52 @@ textarea.input {
 }
 
 /* button header */
+.btn-header {
+  margin-right: 12px;
+  border: 2px solid white;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bold;
+  border-radius: 9999px;
+  background-color: rgba(
+    164,
+    196,
+    192,
+    0.4
+  ); /* Adjust the color and opacity values */
+}
+
 .btn-header:hover {
   background-color: transparent;
   color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  height: 420px;
+  position: relative;
+  background: #fff
+    url(https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80)
+    bottom center/cover no-repeat;
+  padding: 60px 0 0 0;
+}
+
+@media (min-width: 1365px) {
+  .hero {
+    background-attachment: fixed;
+  }
+}
+
+.hero h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.hero p {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  margin-bottom: 30px;
 }

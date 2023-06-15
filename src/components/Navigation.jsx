@@ -42,7 +42,7 @@ function Navigation() {
               <NavDropdown.Item href="/artikel">Artikel</NavDropdown.Item>
               <NavDropdown.Item href="/Berita">Berita</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#Contact">Kontak Kami</Nav.Link>
+            <Nav.Link href="/kontak">Kontak Kami</Nav.Link>
             {isLoggedIn ? (
               <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
             ) : (
