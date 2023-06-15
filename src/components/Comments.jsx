@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-
+import { Button, Form, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
@@ -44,6 +44,14 @@ const CommentSection = () => {
   return (
     <div>
       <h4>Comments</h4>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="commentForm">
+          <Form.Control as="textarea" rows={3} placeholder="Write a comment..." value={comment} onChange={handleCommentChange} />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     </div>
   );
 };
