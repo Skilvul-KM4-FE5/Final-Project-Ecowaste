@@ -48,7 +48,6 @@ export default function Home() {
     .catch((err) => console.log("Gagal memuat data"));
   return (
     <main id="main">
-     
       <Card className="text-white">
         <Card.Img
           style={{
@@ -58,8 +57,8 @@ export default function Home() {
           }}
           src="https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
         />
-     
-     <Card.ImgOverlay>
+
+        <Card.ImgOverlay>
           <Container >
           <Col md={6}>
             <h1 className="display-4">Mari peduli lingkungan sekitarmu</h1>
@@ -72,11 +71,11 @@ export default function Home() {
             </p>
           </Col>
           <Col md={6}>
+
             <Button className="btn-header" style={{ marginRight: '12px' }}>Get Started</Button>
             <Button className="glightbox btn-header">
               <div className="d-flex align-items-center">
                 <FaPlay  style={{ marginRight: '8px' }} />
-               
                 <span className="mr-2">Watch Video</span>
               </div>
             </Button>
