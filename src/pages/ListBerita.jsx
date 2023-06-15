@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import { Container, Row, Col } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import "../berita.css";
 
 const ListBerita = () => {
@@ -16,7 +18,30 @@ const ListBerita = () => {
     return text.length > maxLength ? text.substring(0, maxLength - 3) + "..." : text;
   };
 
-  return <></>;
+  return (
+    <>
+      <Container>
+        <Row>
+          {news.map((item) => (
+            <Col sm={9} md={4} lg={4}>
+              <div className="card">
+                <img src={item.images} className="card-img-top" />
+                <div className="category">{item.category}</div>
+                <div className="card-body">
+                  <h5 className="card-title">{trimText(item.titleNews, 50)}</h5>
+                  <p className="card-text">{trimText(item.descNews, 100)}</p>
+                  <Link to={`/detailberita/${item.id}`} className="btn btn-outline-danger">
+                    Selengkapnya
+                  </Link>
+                </div>
+              </div>
+              <br></br>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </>
+  );
 };
 
 export default ListBerita;
