@@ -24,7 +24,11 @@ const DetailBerita = () => {
     getDataBerita();
   }, []);
 
-  return <></>;
+  return (
+    <>
+      <section id="blog" className="blog"></section>
+    </>
+  );
 };
 
 export default DetailBerita;
