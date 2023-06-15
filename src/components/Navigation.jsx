@@ -24,7 +24,7 @@ function Navigation() {
             <Nav.Link href="/">Tentang Kami</Nav.Link>
             <Nav.Link href="/pilah-sampah">Pilah Sampah</Nav.Link>
             <NavDropdown title="Blog" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#">Artikel</NavDropdown.Item>
+              <NavDropdown.Item href="/artikel">Artikel</NavDropdown.Item>
               <NavDropdown.Item href="/Berita">Berita</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#kontak">Kontak Kami</Nav.Link>
