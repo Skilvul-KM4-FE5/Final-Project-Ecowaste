@@ -30,7 +30,7 @@ const ListBerita = () => {
                 <div className="card-body">
                   <h5 className="card-title">{trimText(item.titleNews, 50)}</h5>
                   <p className="card-text">{trimText(item.descNews, 100)}</p>
-                  <Link to={`/detailberita/${item.id}`} className="btn btn-outline-danger">
+                  <Link to={`/detailberita/${item.id}`} className="bttn">
                     Selengkapnya
                   </Link>
                 </div>
