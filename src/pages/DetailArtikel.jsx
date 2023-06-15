@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import DetailArtikelCard from "../components/DetailArtikelCard";
 
 export default function DetailArtikel() {
   return (
@@ -30,7 +31,8 @@ export default function DetailArtikel() {
           </div>
         </div>
       </section>
-      </main>
+      <DetailArtikelCard />
+    </main>
     </>
     
   );
