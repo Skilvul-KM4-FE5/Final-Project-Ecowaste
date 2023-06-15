@@ -21,6 +21,13 @@ export default function Artikel() {
           </div>
         </nav>
       </div>
+      <section id="kategori" className="kategori sections-bg">
+        <div className="container" data-aos="fade-up">
+          <div className="section-header">
+            <h2>ARTIKEL</h2>
+          </div>
+        </div>
+      </section>
       </main>
     </>
     
