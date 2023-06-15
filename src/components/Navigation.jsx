@@ -27,7 +27,7 @@ function Navigation() {
               <NavDropdown.Item href="#">Artikel</NavDropdown.Item>
               <NavDropdown.Item href="/Berita">Berita</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#kontak">Kontak Kami</Nav.Link>
+            <Nav.Link href="#Contact">Kontak Kami</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
