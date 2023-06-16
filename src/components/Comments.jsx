@@ -66,7 +66,7 @@ const CommentSection = () => {
           Submit
         </Button>
       </Form>
-      <ListGroup className="mt-3">
+      <ListGroup className="mt-2">
         {commentsList.map((comment, index) => (
           <ListGroup.Item
             key={index}
