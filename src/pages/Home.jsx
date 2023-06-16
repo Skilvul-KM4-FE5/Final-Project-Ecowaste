@@ -92,7 +92,7 @@ export default function Home() {
             <Row>
               <Col lg={12} data-aos="fade-up">
                 <div className="section-title">
-                  <h2>Pilah Sampah</h2>
+                  <h2>Tentang Kami</h2>
                 </div>
               </Col>
               <Col md={6}>
