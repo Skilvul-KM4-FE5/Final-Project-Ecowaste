@@ -1,17 +1,8 @@
-// @ts-nocheck
-import Axios from "axios";
-import { useState } from "react";
-import {
-  Card,
-  Col,
-  Container,
-  Image,
-  Row,
-  Modal,
-  Button,
-} from "react-bootstrap";
-import { FaAngleRight, FaPlay } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Modal, Button } from "react-bootstrap";
+import { FaPlay } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -23,60 +14,58 @@ export default function Home() {
   const [news, setNews] = useState([]);
   const [modalAlert, setModalAlert] = useState(false);
 
+  useEffect(() => {
+    axios
+      .get("https://648442b4ee799e3216266fea.mockapi.io/article")
+      .then((res) => {
+        setArticle(res.data);
+      })
+      .catch((err) => console.log("Gagal memuat data"));
+
+    axios
+      .get("https://648442b4ee799e3216266fea.mockapi.io/news")
+      .then((res) => {
+        setNews(res.data);
+      })
+      .catch((err) => console.log("Gagal memuat data"));
+  }, []);
+
   const handleModal = () => {
     const items = [name, email, telp, message];
-    localStorage.setItem("message", JSON.stringify(items));
     localStorage.setItem("message", JSON.stringify(items));
     setName("");
     setEmail("");
     setTelp("");
     setMessage("");
-
     setModalAlert(!modalAlert);
   };
 
-  Axios.get("https://648442b4ee799e3216266fea.mockapi.io/article")
-    .then((res) => {
-      setArticle(res.data);
-    })
-    .catch((err) => console.log("Gagal memuat data"));
-
-  Axios.get("https://648442b4ee799e3216266fea.mockapi.io/news")
-    .then((res) => {
-      setNews(res.data);
-    })
-    .catch((err) => console.log("Gagal memuat data"));
   return (
     <main id="main">
-      <section id="hero" class="hero">
+      {/* Hero Section */}
+      <section id="hero" className="hero">
         <div className="container position-relative">
           <div className="row gy-5" data-aos="fade-in">
             <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
               <h2>
                 Mari peduli <span>lingkungan sekitarmu</span>
               </h2>
-              <p style={{ color: "white" }}>
+              <p>
                 Yuk mulai langkah nyata peduli lingkungan dengan cara membuang
                 sampah pada tempatnya dan jangan lupa untuk memilah sampah
                 sesuai dengan jenisnya ya.
               </p>
               <div className="d-flex justify-content-center justify-content-lg-start">
-                <Link
-                  to="/login"
-                  className="btn-header"
-                  style={{ marginRight: "12px" }}
-                >
+                <a href="/login" className="btn-get-started">
                   Get Started
-                </Link>
-                <Link
-                  to="https://youtu.be/WlauqoKUteo"
-                  className="glightbox btn-header"
+                </a>
+                <a
+                  href="https://youtu.be/WlauqoKUteo"
+                  className="glightbox btn-watch-video d-flex align-items-center"
                 >
-                  <div className="d-flex align-items-center">
-                    <FaPlay style={{ marginRight: "8px" }} />
-                    <span className="mr-2">Watch Video</span>
-                  </div>
-                </Link>
+                  <i className="bi bi-play-circle"></i>
+                  <span>Watch Video</span>
+                </a>
               </div>
             </div>
             <div className="col-lg-6 order-3 order-lg-2">
@@ -92,62 +81,78 @@ export default function Home() {
         </div>
       </section>
 
-      <Container className="mt-4 section-header">
-        <h2 id="tentang-kami">Tentang Kami</h2>
-        <Row>
-          <Col md={6}>
-            <h3 className="text-start">
-              Selamat datang di website kami yang berfokus pada lingkungan dan
-              pengelolaan sampah!
-            </h3>
-            <Image src="/environment.svg" />
-          </Col>
-          <Col
-            md={6}
-            className="d-flex justify-content-center align-items-center"
-          >
-            <div className="text-start">
-              <p className="mb-3">
-                Kami ingin mengajak Anda untuk peduli terhadap lingkungan dan
-                mengambil bagian dalam menjaga kebersihan dan kelestarian bumi
-                kita. Kami menyadari bahwa masalah sampah merupakan masalah
-                global yang sangat kompleks.
-              </p>
-
-              <p className="mb-3">
-                Di sini, Anda akan menemukan berbagai artikel dan tips tentang
-                cara mengurangi sampah, memilah sampah, dan mengelola limbah.
-              </p>
-
-              <p className="mb-3">
-                Kami juga menyajikan berita terbaru tentang isu-isu lingkungan
-                terkini dari berbagai sumber terpercaya.
-              </p>
-
-              <p className="mb-3">
-                Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan
-                atau ingin berbagi ide mengenai bagaimana kita semua dapat
-                bersama-sama menjaga kelestarian lingkungan.
-              </p>
-
-              <p>Terima kasih telah mengunjungi website kami!.</p>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-
+      {/* Tentang Kami Section */}
       <Container
         className="section-header"
         style={{ backgroundColor: "#fff" }}
         fluid
       >
         <section id="services" className="services sections-bg">
-          <Container data-aos="fade-up">
-            <div className="section-header">
-              <h2>Pilah Sampah</h2>
-            </div>
+          <Container>
+            <Row>
+              <Col lg={12} data-aos="fade-up">
+                <div className="section-title">
+                  <h2>Pilah Sampah</h2>
+                </div>
+              </Col>
+              <Col md={6}>
+                <h3 className="text-start">
+                  Selamat datang di website kami yang berfokus pada lingkungan
+                  dan pengelolaan sampah!
+                </h3>
+                <img src="/environment.svg" style={{ height: "50vh" }} />
+              </Col>
+              <Col
+                md={6}
+                className="d-flex justify-content-center align-items-center"
+              >
+                <div className="text-start">
+                  <p className="mb-3">
+                    Kami ingin mengajak Anda untuk peduli terhadap lingkungan
+                    dan mengambil bagian dalam menjaga kebersihan dan
+                    kelestarian bumi kita. Kami menyadari bahwa masalah sampah
+                    merupakan masalah global yang sangat kompleks.
+                  </p>
 
-            <Row className="gy-4" data-aos="fade-up" data-aos-delay="100">
+                  <p className="mb-3">
+                    Di sini, Anda akan menemukan berbagai artikel dan tips
+                    tentang cara mengurangi sampah, memilah sampah, dan
+                    mengelola limbah.
+                  </p>
+
+                  <p className="mb-3">
+                    Kami juga menyajikan berita terbaru tentang isu-isu
+                    lingkungan terkini dari berbagai sumber terpercaya.
+                  </p>
+
+                  <p className="mb-3">
+                    Jangan ragu untuk menghubungi kami jika Anda memiliki
+                    pertanyaan atau ingin berbagi ide mengenai bagaimana kita
+                    semua dapat bersama-sama menjaga kelestarian lingkungan.
+                  </p>
+
+                  <p>Terima kasih telah mengunjungi website kami!</p>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+      </Container>
+
+      {/* Pilah Sampah Section */}
+      <Container
+        className="section-header"
+        style={{ backgroundColor: "#fff" }}
+        fluid
+      >
+        <section id="services" className="services sections-bg">
+          <Container>
+            <Row className="justify-content-center">
+              <Col lg={12} data-aos="fade-up">
+                <div className="section-title">
+                  <h2>Pilah Sampah</h2>
+                </div>
+              </Col>
               <Col lg={4} md={6}>
                 <div className="service-item position-relative text-center">
                   <img src="/organik.svg" alt="Organik" />
@@ -162,12 +167,13 @@ export default function Home() {
                   </Link>
                 </div>
               </Col>
-              {/* End pilah sampah Item */}
 
               <Col lg={4} md={6}>
                 <div className="service-item position-relative text-center">
                   <img src="/anorganik.svg" alt="Anorganik" />
-                  <h3 style={{ marginRight: "8px" }}>Anorganik</h3>
+                  <h3 style={{ marginRight: "8px", textAlign: "center" }}>
+                    Anorganik
+                  </h3>
                   <Link
                     to="/sampah-anorganik"
                     className="readmore stretched-link"
@@ -176,29 +182,37 @@ export default function Home() {
                   </Link>
                 </div>
               </Col>
-              {/* End pilah sampah item */}
 
               <Col lg={4} md={6}>
                 <div className="service-item position-relative text-center">
                   <img src="/b3.svg" alt="B3" />
-                  <h3 style={{ marginRight: "8px" }}>B3</h3>
+                  <h3 style={{ marginRight: "8px", textAlign: "center" }}>
+                    B3
+                  </h3>
                   <Link to="/sampah-b3" className="readmore stretched-link">
                     Read more <i className="bi bi-arrow-right"></i>
                   </Link>
                 </div>
               </Col>
-              {/* End pilah sampah Item */}
             </Row>
           </Container>
         </section>
+      </Container>
 
-        <section id="recent-posts" className="recent-posts sections-bg">
-          <Container data-aos="fade-up">
-            <div className="section-header">
-              <h2>Artikel</h2>
-            </div>
-
-            <Row className="gy-4">
+      {/* Artikel Section */}
+      <Container
+        className="section-header"
+        style={{ backgroundColor: "#fff" }}
+        fluid
+      >
+        <section id="recent-post" className="recent-posts sections-bg">
+          <Container>
+            <Row className="justify-content-center">
+              <Col lg={12} data-aos="fade-up">
+                <div className="section-title">
+                  <h2>Artikel</h2>
+                </div>
+              </Col>
               {article.map((item) => (
                 <Col xl={4} md={6}>
                   <article>
@@ -232,17 +246,24 @@ export default function Home() {
                 </Col>
               ))}
             </Row>
-            {/* End recent posts list */}
           </Container>
         </section>
+      </Container>
 
-        <section id="recent-posts" className="recent-posts sections-bg">
-          <Container data-aos="fade-up">
-            <div className="section-header">
-              <h2>Berita</h2>
-            </div>
-
-            <Row className="gy-4">
+      {/* Berita Section */}
+      <Container
+        className="section-header"
+        style={{ backgroundColor: "#fff" }}
+        fluid
+      >
+        <section id="recent-post" className="recent-posts sections-bg">
+          <Container>
+            <Row className="justify-content-center">
+              <Col lg={12} data-aos="fade-up">
+                <div className="section-title">
+                  <h2>Berita</h2>
+                </div>
+              </Col>
               {news.map((item) => (
                 <Col xl={4} md={6}>
                   <article>
@@ -276,11 +297,11 @@ export default function Home() {
                 </Col>
               ))}
             </Row>
-            {/* End recent posts list */}
           </Container>
         </section>
       </Container>
 
+      {/* Contact Section */}
       <section id="Contact" className="Contact">
         <div className="section-header">
           <h2>Kontak Kami</h2>
@@ -324,7 +345,11 @@ export default function Home() {
               </div>
             </div>
             <div className="contact-form">
-              <Modal show={modalAlert} onHide={setModalAlert}>
+              <Modal
+                show={modalAlert}
+                // @ts-ignore
+                onHide={setModalAlert}
+              >
                 <Modal.Header closeButton>
                   <Modal.Title>Pemberitahuan</Modal.Title>
                 </Modal.Header>
@@ -380,6 +405,24 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Modal */}
+      <Modal show={modalAlert} onHide={() => setModalAlert(!modalAlert)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Thank You!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Your message has been sent successfully.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={() => setModalAlert(!modalAlert)}
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </main>
   );
 }
