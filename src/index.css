@@ -2569,6 +2569,9 @@ textarea.input {
   color: #fff;
   padding: 10px 32px;
   border-radius: 8px;
+}
+
+a.btn-button {
   text-decoration: none;
 }
 
