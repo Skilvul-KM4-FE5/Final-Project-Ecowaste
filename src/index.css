@@ -1811,6 +1811,10 @@ textarea.input {
   font-weight: 600;
 }
 
+a.btn-watch-video {
+  text-decoration: none;
+}
+
 .hero .btn-watch-video i {
   color: rgba(255, 255, 255, 0.5);
   font-size: 32px;
@@ -2674,6 +2678,10 @@ a.btn-button {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+a.btn-get-started {
+  text-decoration: none;
 }
 
 .hero .btn-get-started:hover {
