@@ -54,9 +54,15 @@ const CommentSection = () => {
       <h4>Comments</h4>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="commentForm">
-          <Form.Control as="textarea" rows={3} placeholder="Write a comment..." value={comment} onChange={handleCommentChange} />
+          <Form.Control
+            as="textarea"
+            rows={3}
+            placeholder="Write a comment..."
+            value={comment}
+            onChange={handleCommentChange}
+          />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" style={{ marginTop: "1.5rem" }}>
           Submit
         </Button>
       </Form>
