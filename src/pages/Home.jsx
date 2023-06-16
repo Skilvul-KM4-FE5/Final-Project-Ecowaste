@@ -423,7 +423,7 @@ export default function Home() {
             variant="secondary"
             onClick={() => setModalAlert(!modalAlert)}
           >
-            Close
+            Tutup
           </Button>
         </Modal.Footer>
       </Modal>
