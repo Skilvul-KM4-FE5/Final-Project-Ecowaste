@@ -2569,6 +2569,7 @@ textarea.input {
   color: #fff;
   padding: 10px 32px;
   border-radius: 8px;
+  text-decoration: none;
 }
 
 .btn-button:hover {
