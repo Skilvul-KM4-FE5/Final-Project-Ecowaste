@@ -413,10 +413,10 @@ export default function Home() {
       {/* Modal */}
       <Modal show={modalAlert} onHide={() => setModalAlert(!modalAlert)}>
         <Modal.Header closeButton>
-          <Modal.Title>Thank You!</Modal.Title>
+          <Modal.Title>Pemberitahuan</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Your message has been sent successfully.</p>
+          <p>Terima kasih telah menghubungi kami!</p>
         </Modal.Body>
         <Modal.Footer>
           <Button
