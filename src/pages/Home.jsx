@@ -372,7 +372,11 @@ export default function Home() {
                     required
                   ></textarea>
                 </div>
-                <Button onClick={handleModal} className="btn-contact">
+                <Button
+                  type="button"
+                  onClick={handleModal}
+                  className="btn-contact"
+                >
                   Kirim
                 </Button>
               </form>
